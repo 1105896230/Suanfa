@@ -1,6 +1,10 @@
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
+import javax.crypto.KeyGenerator;
+import javax.crypto.Mac;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,13 +13,14 @@ import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
+import java.util.concurrent.Executors;
 
 /**
  * Created by Administrator on 2016/8/25 0025.
  */
 public class bianma {
-    public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
-        getmd5();
+    public static void main(String[] args) throws Exception {
+        hmac();
     }
 
     private static void base64() {
@@ -68,5 +73,28 @@ public class bianma {
         System.out.print(digest.toString());
     }
 
+    private static void sha() throws NoSuchAlgorithmException {
+        String str = "我很帅";
+        byte[] bytes = str.getBytes();
+        MessageDigest sha = MessageDigest.getInstance("SHA-256");
+        sha.update(bytes);
+        byte[] digest = sha.digest();
+        System.out.print(digest);
+    }
 
+    //md5和sha的缺点 当客户单发送数据 一个data和disge 如果都被截获，被构造一份data和相应的disge是有问题的
+    //hmac 读disget进行加密 所以要对disget进行解密所以比上着根号用
+
+
+    private static void hmac() throws Exception {
+        String str = "我很帅";
+        //生成秘钥
+        KeyGenerator hmacMD5 = KeyGenerator.getInstance("HmacMD5");
+        SecretKey secretKey = hmacMD5.generateKey();
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getEncoded(), "HmacMD5");
+        Mac mac = Mac.getInstance("HmacMd5");
+        mac.init(secretKeySpec);
+        byte[] bytes = mac.doFinal(str.getBytes());
+        System.out.print(bytes.toString());
+    }
 }
