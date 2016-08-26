@@ -4,7 +4,7 @@
 public class suanfa {
     public static void main(String[] args) {
 //        System.out.print((10 >> 2)&1);
-        test2();
+        test3();
     }
 
     //一个数组中 其中一个数出现一次，其他数都出现两次 如何找到这个数
@@ -45,5 +45,49 @@ public class suanfa {
         }
         System.out.println(pN1 + "");
         System.out.println(pN2 + "");
+    }
+
+    /**
+     * 一个数组中只有一个数出现一次，其他数均出现三次
+     */
+    private static void test3() {
+        int[] size = {11, 2, 2, 2, 3, 3, 3, 4, 4, 4};
+        int i = 0, j = 0;
+        int low = 0, hight = size.length - 1;
+        int bit = 1;
+        int temp = 0;
+        while (low <= hight) {
+            if (low == hight) {
+                temp = size[low];
+                System.out.println(temp);
+                return;
+            }
+            i = low - 1;
+            //排列
+            for (j = low; j <= hight; j++) {
+                int m=size[j] ;
+                int n=bit;
+                int s=(size[j] & bit);
+                if ((size[j] & bit) == 0) {
+                    i++;
+                    size = swap(size, i, j);
+                }
+            }
+            if (i >= low) {
+                if ((i - low + 1) % 3 == 0) {
+                    low = i + 1;
+                } else hight = i;
+            }
+            bit = bit << 1;
+        }
+
+    }
+
+    private static int[] swap(int[] size, int i, int j) {
+        int k = 0;
+        k = size[j];
+        size[j] = size[i];
+        size[i] = k;
+        return size;
     }
 }
