@@ -3,16 +3,47 @@
  */
 public class suanfa {
     public static void main(String[] args) {
-        test1();
+//        System.out.print((10 >> 2)&1);
+        test2();
     }
 
     //一个数组中 其中一个数出现一次，其他数都出现两次 如何找到这个数
+    //原理 相同的数亦或为0 a^b^a^b=(a^a)^(b^b)
     public static void test1() {
-        int[] size = {2, 2, 1,1, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7,11};
-        int value =0;
+        int[] size = {2, 2, 1, 1, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 11};
+        int value = 0;
         for (int j = 0; j < size.length; j++) {
             value ^= size[j];
         }
-        System.out.print(value);
+        System.out.println(value);
+    }
+
+    //如果一个数组中有两个数出现一次，其他都出现两次，找两个数
+    public static void test2() {
+        int[] size = {2, 2, 1, 1, 3, 3, 4, 4, 5, 13, 6, 6, 7, 7, 11, 5};
+        int i, j, temp = 0;
+        //整个数组一伙
+        for (i = 0; i < size.length; i++) {
+            temp ^= size[i];
+        }
+        //查找亦或结果第一个为1的是位置 说明在这个位置上是有问题的
+        for (j = 0; j < 8; j++) {
+
+            if (((temp >> j) & 1) == 1) {
+                break;
+            }
+        }
+        int pN1 = 0;
+        int pN2 = 0;
+        //这里是为了分组亦或 在某个位上相同的亦或不同的亦或不同的，分而治之
+        for (i = 0; i < size.length; i++) {
+            if (((size[i] >> j) & 1) == 1) {
+                pN1 ^= size[i];
+            } else {
+                pN2 ^= size[i];
+            }
+        }
+        System.out.println(pN1 + "");
+        System.out.println(pN2 + "");
     }
 }
