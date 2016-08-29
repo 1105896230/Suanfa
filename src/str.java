@@ -26,4 +26,11 @@ public class str {
         System.out.println(s4.contains(s3));
     }
 
+    /**
+     * 给定两个字符串O和s 长度为m和n，判断s是否在o中出现，如果出现返回出现的位置
+     */
+    public static void KMP() {
+
+    }
+
 }
