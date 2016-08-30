@@ -3,7 +3,7 @@
  */
 public class suzu {
     public static void main(String[] args) {
-        test2();
+        bulldle(null, 0);
     }
 
     /**
@@ -105,4 +105,41 @@ public class suzu {
         System.out.print(CountInversions(size));
     }
 
+
+    /**
+     * 冒泡排序,从大到小
+     */
+    static void bulldle(int[] size, int num) {
+        size = new int[]{1, 3, 4, 2, 1, 5, 7, 2, 1};
+        num = size.length;
+        int i, j, temp;
+        for (i = 0; i < num - 1; i++) {
+            for (j = i + 1; j < num; j++) {
+                if (size[i] < size[j]) {
+                    temp = size[i];
+                    size[i] = size[j];
+                    size[j] = temp;
+                }
+            }
+        }
+    }
+
+    /**
+     * 冒泡排序升级版,从小到大
+     */
+    static void bulldle1(int[] size, int num) {
+        int i, j, temp;
+        int flag = 1;
+        for (i = 0; ((i < num - 1) && flag == 1); i++) {
+            flag = 0;
+            for (j = i + 1; j < num; j++) {
+                if (size[i] > size[j]) {
+                    temp = size[i];
+                    size[i] = size[j];
+                    size[j] = temp;
+                    flag = 1;
+                }
+            }
+        }
+    }
 }
