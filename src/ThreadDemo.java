@@ -3,7 +3,7 @@
  */
 public class ThreadDemo {
     public static void main(String[] args) {
-        test2();
+        test3();
     }
 
     /**
@@ -28,6 +28,26 @@ public class ThreadDemo {
         threadB.start();
         threadC.start();
         threadD.start();
+    }
+
+    public static void test3() {
+        MyThread3 thread3 = new MyThread3();
+        thread3.start();
+        try {
+            thread3.sleep(2000);
+            thread3.interrupt();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static class MyThread3 extends Thread {
+        @Override
+        public void run() {
+            super.run();
+            for (int i = 0; i < 500000; i++)
+                System.out.println("i=" + (i + 1));
+        }
     }
 
     private static class MyThread extends Thread {

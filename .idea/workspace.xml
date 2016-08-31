@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42aa1377-12e8-4244-9dcd-24450da47ebd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ThreadDemo.java" afterPath="$PROJECT_DIR$/src/ThreadDemo.java" />
     </list>
     <ignored path="suanfa.iws" />
@@ -71,8 +71,8 @@
       <file leaf-file-name="ThreadDemo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ThreadDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+            <state relative-caret-position="120">
+              <caret line="32" column="2" selection-start-line="32" selection-start-column="2" selection-end-line="50" selection-end-column="5" />
               <folding>
                 <element signature="e#124#125#0" expanded="true" />
                 <element signature="e#147#148#0" expanded="true" />
@@ -732,12 +732,12 @@
       <workItem from="1472483832921" duration="1326000" />
       <workItem from="1472537480559" duration="7000" />
       <workItem from="1472570525557" duration="2124000" />
-      <workItem from="1472657708473" duration="816000" />
+      <workItem from="1472657708473" duration="1370000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16067000" />
+    <option name="totallyTimeSpent" value="16621000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1924" height="1038" extended-state="0" />
@@ -1077,8 +1077,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ThreadDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+        <state relative-caret-position="120">
+          <caret line="32" column="2" selection-start-line="32" selection-start-column="2" selection-end-line="50" selection-end-column="5" />
           <folding>
             <element signature="e#124#125#0" expanded="true" />
             <element signature="e#147#148#0" expanded="true" />
